@@ -1,0 +1,10 @@
+{
+  "name": "Workout 20 minutes",
+  "short_name": "Workout",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#111827",
+  "orientation": "portrait",
+  "icons": []
+}
