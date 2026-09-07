@@ -2,13 +2,42 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#111827" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="theme-color"
+    content="#111827"
+  />
 
   <title>Workout 20 min</title>
 
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- PWA -->
+  <link
+    rel="manifest"
+    href="manifest.json"
+  />
+
+  <!-- Icône de l'application -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="icon-512.png"
+  />
+
+  <link
+    rel="apple-touch-icon"
+    href="icon-512.png"
+  />
+
+  <!-- Style -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
 </head>
 
 <body>
@@ -16,84 +45,174 @@
   <main class="app">
 
     <div class="topbar">
+
       <div>
-        <div class="label">Temps total restant</div>
-        <div id="globalTimer" class="global-timer">20:00</div>
+        <div class="label">
+          Temps total restant
+        </div>
+
+        <div
+          id="globalTimer"
+          class="global-timer"
+        >
+          20:00
+        </div>
       </div>
 
-      <button id="restartBtn" class="small-btn">↻</button>
+      <button
+        id="restartBtn"
+        class="small-btn"
+        aria-label="Recommencer la séance"
+      >
+        ↻
+      </button>
+
     </div>
+
 
     <section class="workout-card">
 
-      <div id="sectionName" class="section-name">
+      <div
+        id="sectionName"
+        class="section-name"
+      >
         Prêt
       </div>
 
-      <div id="exerciseName" class="exercise-name">
+
+      <div
+        id="exerciseName"
+        class="exercise-name"
+      >
         Séance de 20 minutes
       </div>
 
-      <div id="illustration" class="illustration">
+
+      <div
+        id="illustration"
+        class="illustration"
+      >
         🏃
       </div>
 
-      <div id="exerciseTimer" class="exercise-timer">
+
+      <div
+        id="exerciseTimer"
+        class="exercise-timer"
+      >
         20:00
       </div>
 
-      <div id="instruction" class="instruction">
+
+      <div
+        id="instruction"
+        class="instruction"
+      >
         Appuie sur Démarrer
       </div>
 
-      <div id="nextExercise" class="next-exercise">
+
+      <div
+        id="nextExercise"
+        class="next-exercise"
+      >
         Premier exercice : Sauts sur place
       </div>
 
     </section>
 
-    <section id="circuitPanel" class="circuit-panel hidden">
+
+    <section
+      id="circuitPanel"
+      class="circuit-panel hidden"
+    >
 
       <div class="circuit-title">
         Circuit haut du corps
       </div>
 
-      <div id="circuitRemaining" class="circuit-remaining">
+
+      <div
+        id="circuitRemaining"
+        class="circuit-remaining"
+      >
         6:40 restantes
       </div>
 
+
       <div class="circuit-flow">
 
-        <div class="circuit-item" data-exercise="Pompes">
-          <div class="circuit-icon">🤸</div>
+        <div
+          class="circuit-item"
+          data-exercise="Pompes"
+        >
+          <div class="circuit-icon">
+            🤸
+          </div>
           <span>Pompes</span>
         </div>
 
-        <div class="arrow">→</div>
 
-        <div class="circuit-item" data-exercise="Crunches">
-          <div class="circuit-icon">🧍</div>
+        <div class="arrow">
+          →
+        </div>
+
+
+        <div
+          class="circuit-item"
+          data-exercise="Crunches"
+        >
+          <div class="circuit-icon">
+            🧎
+          </div>
           <span>Crunches</span>
         </div>
 
-        <div class="arrow">→</div>
 
-        <div class="circuit-item" data-exercise="Développé couché">
-          <div class="circuit-icon">🏋️</div>
+        <div class="arrow">
+          →
+        </div>
+
+
+        <div
+          class="circuit-item"
+          data-exercise="Développé couché"
+        >
+          <div class="circuit-icon">
+            🏋️
+          </div>
           <span>Dév. couché</span>
         </div>
 
-        <div class="arrow">→</div>
 
-        <div class="circuit-item" data-exercise="Rowing penché">
-          <div class="circuit-icon">🏋️‍♂️</div>
+        <div class="arrow">
+          →
+        </div>
+
+
+        <div
+          class="circuit-item"
+          data-exercise="Rowing penché"
+        >
+          <div class="circuit-icon">
+            🚣
+          </div>
           <span>Rowing</span>
         </div>
 
-        <div class="arrow">→</div>
 
-        <div class="circuit-item" data-exercise="Développé militaire">
-          <div class="circuit-icon">🙆</div>
+        <div class="arrow">
+          →
+        </div>
+
+
+        <div
+          class="circuit-item"
+          data-exercise="Développé militaire"
+        >
+          <div class="circuit-icon">
+            🙆
+          </div>
           <span>Dév. militaire</span>
         </div>
 
@@ -101,20 +220,43 @@
 
     </section>
 
+
     <div class="controls">
-      <button id="startPauseBtn" class="main-btn">
+
+      <button
+        id="startPauseBtn"
+        class="main-btn"
+      >
         Démarrer
       </button>
+
     </div>
 
   </main>
 
- <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js");
-    });
-  }
-</script>
+
+  <!-- Programme -->
+  <script src="app.js"></script>
+
+
+  <!-- Service Worker : installation PWA + fonctionnement hors ligne -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(() => {
+            console.log("Service Worker enregistré");
+          })
+          .catch(error => {
+            console.error(
+              "Erreur Service Worker :",
+              error
+            );
+          });
+      });
+    }
+  </script>
+
 </body>
 </html>
